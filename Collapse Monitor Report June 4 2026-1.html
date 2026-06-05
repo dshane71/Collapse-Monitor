@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMR SITREP 112 — June 4, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Syne+Mono&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0908;--s:#13110f;--s2:#1a1714;--bd:#2a2520;--tx:#f0e8de;--dm:#d4c9bc;--mu:#a89a8a;--r:#e05a2b;--w:#d4a04c;--ok:#5fa572;--pu:#a784c9;--bl:#6a9bb5;--go:#c9a961;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--tx);font-family:"Syne Mono",monospace;font-size:11px;line-height:1.5;overflow-x:hidden;}
+.mast{border-bottom:2px solid #7a2f15;padding:16px 20px;background:linear-gradient(180deg,rgba(224,90,43,0.1) 0%,transparent 100%);}
+.ml{font-size:8px;letter-spacing:3px;color:var(--r);text-transform:uppercase;margin-bottom:4px;}
+.mt{font-family:"Syne",sans-serif;font-size:20px;font-weight:800;color:#fff;text-transform:uppercase;}
+.msub{font-size:9px;color:var(--dm);margin-top:4px;line-height:1.7;}
+.msc{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0;}
+.msi{font-size:9px;color:var(--dm);}
+.msi span{font-family:"Syne",sans-serif;font-size:13px;font-weight:800;}
+.msi.r span{color:var(--r)}.msi.w span{color:var(--w)}
+.mstat{font-size:9px;color:var(--mu);line-height:1.7;}
+.wrap{max-width:1400px;margin:0 auto;padding:14px 20px;}
+.legal{border-left:3px solid var(--mu);padding:6px 10px;font-size:8px;color:var(--mu);line-height:1.6;margin-bottom:8px;font-family:"Crimson Pro",serif;}
+.crit{background:rgba(224,90,43,0.07);border:2px solid var(--r);border-left:6px solid var(--r);padding:12px 16px;margin-bottom:9px;}
+.crit-t{font-family:"Syne",sans-serif;font-size:12px;font-weight:800;color:var(--r);text-transform:uppercase;margin-bottom:4px;}
+.crit-b{font-size:10px;color:var(--dm);line-height:1.75;}
+.blk{padding:9px 13px;margin-bottom:8px;border-left:4px solid;}
+.bl{font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+.bb{font-size:10px;color:var(--dm);line-height:1.75;}
+.blk.r{background:rgba(224,90,43,0.05);border-color:var(--r)}.blk.r .bl{color:var(--r)}
+.blk.w{background:rgba(212,160,76,0.04);border-color:var(--w)}.blk.w .bl{color:var(--w)}
+.blk.ok{background:rgba(95,165,114,0.04);border-color:var(--ok)}.blk.ok .bl{color:var(--ok)}
+.blk.go{background:rgba(201,169,97,0.04);border-color:var(--go)}.blk.go .bl{color:var(--go)}
+.blk.bl3{background:rgba(106,155,181,0.04);border-color:var(--bl)}.blk.bl3 .bl{color:var(--bl)}
+.chain{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding-top:7px;border-top:1px solid var(--bd);margin-top:6px;}
+.nd{font-size:8px;padding:2px 6px;border:1px solid;white-space:nowrap;}
+.nd.r{color:var(--r);border-color:#7a2f15;background:rgba(224,90,43,0.1)}
+.nd.w{color:var(--w);border-color:#6e4f1a;background:rgba(212,160,76,0.08)}
+.nd.go{color:var(--go);border-color:#5a4520;background:rgba(201,169,97,0.08)}
+.arr{color:var(--mu);font-size:11px;}
+.als{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+.al{display:flex;gap:8px;padding:8px 12px;font-size:10px;line-height:1.65;}
+.al.r{background:rgba(224,90,43,0.07);border:1px solid #7a2f15}
+.al.w{background:rgba(212,160,76,0.05);border:1px solid #6e4f1a}
+.al.ok{background:rgba(95,165,114,0.06);border:1px solid #2a4f33}
+.al.go{background:rgba(201,169,97,0.05);border:1px solid #5a4520}
+.al.bl{background:rgba(106,155,181,0.05);border:1px solid #1f3a4a}
+.al.pu{background:rgba(167,132,201,0.05);border:1px solid #4a3263}
+.ai{font-size:12px;flex-shrink:0;}
+.al.r .ai{color:var(--r)}.al.w .ai{color:var(--w)}.al.ok .ai{color:var(--ok)}.al.go .ai{color:var(--go)}.al.bl .ai{color:var(--bl)}.al.pu .ai{color:var(--pu)}
+.sc{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:7px;margin-bottom:11px;}
+.sk{background:var(--s);border:1px solid var(--bd);padding:10px 12px;position:relative;}
+.sk::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;}
+.sk.r::before{background:var(--r)}.sk.w::before{background:var(--w)}.sk.ok::before{background:var(--ok)}.sk.go::before{background:var(--go)}.sk.bl::before{background:var(--bl)}
+.sk-l{font-size:8px;color:var(--mu);text-transform:uppercase;margin-bottom:2px;}
+.sk-v{font-family:"Syne",sans-serif;font-weight:800;line-height:1;font-size:22px;}
+.sk.r .sk-v{color:var(--r)}.sk.w .sk-v{color:var(--w)}.sk.ok .sk-v{color:var(--ok)}.sk.go .sk-v{color:var(--go)}.sk.bl .sk-v{color:var(--bl)}
+.sk-s{font-size:8px;color:var(--dm);margin-top:2px;line-height:1.3;}
+.sk-d{font-size:7px;margin-top:2px;}
+.sk.r .sk-d{color:var(--r)}.sk.w .sk-d{color:var(--w)}.sk.ok .sk-d{color:var(--ok)}.sk.go .sk-d{color:var(--go)}.sk.bl .sk-d{color:var(--bl)}
+.sh{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:1px solid var(--bd);margin-bottom:16px;}
+.sc2{padding:7px 9px;border-right:1px solid var(--bd)}.sc2:last-child{border-right:none}.sc2.now{background:rgba(224,90,43,0.04)}
+.sd{font-size:7px;color:var(--mu);text-transform:uppercase;margin-bottom:4px;}
+.sr{font-size:8px;color:var(--dm);padding:2px 0;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;}
+.sr:last-child{border-bottom:none}
+.sr .v{font-family:"Syne",sans-serif;font-size:11px;font-weight:800;}
+.sc2.now .sr .v{color:var(--r)}.sc2:not(.now) .sr .v{color:var(--mu)}
+.sec{margin-bottom:18px;}
+.sh2{display:flex;align-items:center;gap:7px;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid var(--bd);}
+.sn{font-size:8px;color:var(--r);background:rgba(224,90,43,0.1);padding:2px 6px;}
+.st{font-family:"Syne",sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--r);flex-shrink:0;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;}
+@media(max-width:800px){.three{grid-template-columns:1fr}}
+.cd{background:var(--s);border:1px solid var(--bd);padding:11px 13px;}
+.ct{font-size:8px;text-transform:uppercase;color:var(--mu);margin-bottom:7px;padding-bottom:4px;border-bottom:1px solid var(--bd);}
+.kv{width:100%;border-collapse:collapse;font-size:9.5px;}
+.kv tr{border-bottom:1px solid var(--bd)}.kv tr:last-child{border-bottom:none}
+.kv td{padding:4px 0;vertical-align:top;}
+.kv td:first-child{color:var(--dm);width:1%;white-space:nowrap;padding-right:10px;}
+.kv td.r{color:var(--r)}.kv td.w{color:var(--w)}.kv td.ok{color:var(--ok)}.kv td.bl{color:var(--bl)}.kv td.pu{color:var(--pu)}
+.tbl-full{width:100%;overflow-x:visible;}
+table.t{width:1800px;border-collapse:collapse;font-size:9px;table-layout:fixed;}
+table.t th{text-align:left;font-size:7px;color:var(--mu);padding:4px 6px;border-bottom:1px solid var(--bd);font-weight:400;text-transform:uppercase;background:var(--s);white-space:nowrap;}
+table.t td{padding:4px 6px;border-bottom:1px solid var(--bd);vertical-align:top;line-height:1.45;overflow-wrap:break-word;word-break:break-word;}
+table.t col.c-id{width:60px}table.t col.c-name{width:160px}table.t col.c-cat{width:55px}table.t col.c-wt{width:45px}table.t col.c-status{width:210px}table.t col.c-ir{width:110px}table.t col.c-assess{width:1160px}
+.tr td:first-child{border-left:3px solid var(--r)}
+.hw td:first-child{border-left:3px solid var(--w)}
+.mo td:first-child{border-left:3px solid var(--ok)}
+.th td:first-child{border-left:3px solid var(--pu)}
+.of td:first-child{border-left:3px solid var(--mu)}
+.nw td:first-child{border-left:3px solid var(--bl)}
+.pl{display:inline-block;padding:1px 4px;font-size:7px;text-transform:uppercase;font-weight:700;border:1px solid;white-space:nowrap;}
+.pt{background:rgba(224,90,43,0.15);color:var(--r);border-color:#7a2f15}
+.pw{background:rgba(212,160,76,0.12);color:var(--w);border-color:#6e4f1a}
+.pm{background:rgba(95,165,114,0.1);color:var(--ok);border-color:#2a4f33}
+.pp{background:rgba(167,132,201,0.12);color:var(--pu);border-color:#4a3263}
+.pbl{background:rgba(106,155,181,0.12);color:var(--bl);border-color:#1f3a4a}
+.pmu{background:var(--s2);color:var(--mu);border-color:var(--bd)}
+.wb{display:inline-block;background:var(--s2);border:1px solid var(--bd);padding:1px 3px;font-size:8px;color:var(--dm);min-width:16px;text-align:center;}
+.wb.a{color:var(--r);border-color:#7a2f15;background:rgba(224,90,43,0.1)}
+.wb.g{color:var(--go);border-color:#5a4520;background:rgba(201,169,97,0.1)}
+.wb.pu{color:var(--pu);border-color:#4a3263;background:rgba(167,132,201,0.1)}
+.wb.bl{color:var(--bl);border-color:#1f3a4a;background:rgba(106,155,181,0.1)}
+.ir{display:inline-block;font-size:7px;padding:1px 3px;background:rgba(212,160,76,0.08);border:1px solid #6e4f1a;color:var(--w);margin-left:2px;vertical-align:middle;}
+.ic{background:var(--s);border:1px solid var(--bd);margin-bottom:6px;}
+.ich{display:flex;align-items:center;gap:7px;padding:6px 11px;border-bottom:1px solid var(--bd);background:var(--s2);flex-wrap:wrap;}
+.ica{color:#fff;font-size:10px;font-weight:700;flex:1;}
+.ics{font-size:7px;text-transform:uppercase;font-weight:700;padding:2px 5px;border:1px solid;}
+.ics.r{color:var(--r);border-color:#7a2f15;background:rgba(224,90,43,0.1)}
+.ics.w{color:var(--w);border-color:#6e4f1a;background:rgba(212,160,76,0.1)}
+.ics.bl{color:var(--bl);border-color:#1f3a4a;background:rgba(106,155,181,0.1)}
+.icb{padding:7px 11px;font-size:10px;color:var(--dm);line-height:1.65;}
+.ix{width:100%;border-collapse:collapse;font-size:9.5px;table-layout:fixed;}
+.ix col.ic-n{width:4%}.ix col.ic-i{width:21%}.ix col.ic-s{width:75%}
+.ix th{text-align:left;font-size:7px;color:var(--mu);padding:5px 7px;border-bottom:1px solid var(--bd);font-weight:400;text-transform:uppercase;background:var(--s);}
+.ix td{padding:5px 7px;border-bottom:1px solid var(--bd);vertical-align:top;line-height:1.45;word-wrap:break-word;}
+.ix .det td:first-child{border-left:3px solid var(--r)}
+.ix .mix td:first-child{border-left:3px solid var(--w)}
+.p15{background:rgba(167,132,201,0.04);border:1px solid #4a3263;border-left:3px solid var(--pu);padding:7px 12px;font-size:9px;color:var(--mu);margin-top:7px;line-height:1.6;}
+.p15 strong{color:var(--pu)}
+.tl{background:var(--s);border:1px solid var(--bd);}
+.tr2{display:flex;align-items:flex-start;gap:9px;padding:7px 11px;border-bottom:1px solid var(--bd);font-size:10px;}.tr2:last-child{border-bottom:none}
+.ti{font-size:11px;width:14px;flex-shrink:0}.tn{flex:1;line-height:1.45}.td{font-size:8px;color:var(--mu);white-space:nowrap}
+.done .tn{color:var(--ok)}.crit2 .tn{color:var(--r)}.watch .tn{color:var(--w)}
+.pr{border:1px solid var(--bd);border-top:3px solid var(--r);margin-bottom:10px;}
+.ph{padding:8px 14px;border-bottom:1px solid var(--bd);background:rgba(224,90,43,0.04);}
+.pht{font-family:"Syne",sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--r);}
+.pc{padding:9px 14px;border-bottom:1px solid var(--bd);font-size:9px;color:var(--dm);line-height:1.75;}
+.pt2{border-bottom:1px solid var(--bd);padding:10px 14px;}.pt2:last-child{border-bottom:none}
+.ptl{font-size:8px;text-transform:uppercase;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--bd);}
+.tnow .ptl{color:var(--r)}.tmed .ptl{color:var(--w)}.tcaut .ptl{color:var(--mu)}
+.pi{display:flex;gap:7px;margin-bottom:5px;font-size:10px;color:var(--dm);line-height:1.55;}.pi:last-child{margin-bottom:0}
+.pb{flex-shrink:0}
+.tnow .pb{color:var(--r)}.tmed .pb{color:var(--w)}.tcaut .pb{color:var(--mu)}
+.assess{font-family:"Crimson Pro",serif;font-size:12px;color:var(--tx);line-height:1.8;}
+.assess p{margin-bottom:7px;}
+.sl{display:flex;flex-direction:column;gap:3px;}
+.si{display:flex;gap:7px;padding:5px 9px;background:var(--s);border:1px solid var(--bd);}
+.sn2{font-size:8px;color:var(--r);flex-shrink:0;width:24px;}
+.sp{font-size:10px;color:var(--tx);}
+.st2{font-size:8px;color:var(--dm);margin-top:1px;}
+.su a{font-size:7px;color:var(--bl);text-decoration:none;word-break:break-all;}
+.ft{border-top:1px solid var(--bd);padding:10px 20px;display:flex;justify-content:space-between;font-size:8px;color:var(--mu);margin-top:24px;flex-wrap:wrap;gap:7px;}
+</style>
+</head>
+<body>
+<div class="mast">
+  <div class="ml">&#9670; CMF v5.4 // SITREP 112 // HORMUZ DAY 55 // JUNE 4, 2026 // BATCH-SEARCH VERIFIED</div>
+  <div class="mt">Collapse Monitor Report</div>
+  <div class="msub">HEZBOLLAH FORMALLY REJECTS CEASEFIRE &mdash; "ABSURD, HUMILIATING, INSULTING" &middot; UN PEACEKEEPER KILLED &middot; 4 KILLED IN ISRAELI STRIKES<br>IRAN'S D1 (HORMUZ CLOSURE) CONDITION NOW FARTHER THAN EVER &middot; CASCADE MULTIPLY LOCKED<br>OIL DROPS 3% ON TRUMP RELUCTANCE &middot; BRENT $95.03 &middot; DC DROUGHT WATCH 3RD CONSECUTIVE YEAR &middot; 6M RESIDENTS</div>
+  <div class="msc">
+    <div class="msi r">WEIGHTED <span>16/299</span></div>
+    <div class="msi w">UNWEIGHTED <span>24/36</span></div>
+    <div class="msi w">TRIGGERED <span>7</span></div>
+    <div class="msi r">HORMUZ DAY <span>55</span></div>
+    <div class="msi w">BRENT <span>$95.03</span></div>
+  </div>
+  <div class="mstat">
+    STATUS &#9679; <span style="color:var(--r)">CRITICAL &mdash; D1 (HORMUZ CLOSURE) DIRECT CONFLICT &mdash; D2 (ISRAEL-HEZBOLLAH) CEASEFIRE FORMALLY REJECTED &mdash; CASCADE LOCKED</span><br>
+    <span style="color:var(--r)">HEZBOLLAH REJECTS &middot; UN PEACEKEEPER KILLED &middot; 4 KILLED IN STRIKES &middot; IRAN D1 CONDITION UNMET</span><br>
+    <span style="color:var(--w)">TRUMP: CEASEFIRE "REMAINS IN PLACE" &middot; WEEKEND DEAL POSSIBLE &middot; OC13 APPLIED</span><br>
+    <span style="color:var(--bl)">DC DROUGHT WATCH 3RD CONSECUTIVE YEAR &middot; 6M RESIDENTS &middot; POTOMAC 130-YR LOWS &middot; -8 INCH PRECIP DEFICIT</span>
+  </div>
+</div>
+<div class="wrap">
+<div class="legal">The Collapse Monitor Report is an independent open-source intelligence framework for informational purposes only. All data is sourced exclusively from public records, government databases, and verified news reporting. Nothing in this report constitutes financial, legal, medical, or emergency management advice. CMR is not affiliated with any government, intelligence agency, or commercial entity.</div>
+
+<div class="blk w"><div class="bl">&#916; DELTA &mdash; JUNE 4 VS JUNE 3 &middot; WEIGHTED UNCHANGED &middot; CASCADE LOCKED</div><div class="bb">
+<span style="color:var(--r)">&#8593; MAJOR SETBACK</span> D2 (Israel-Hezbollah): FICTION &rarr; FORMALLY REJECTED &middot; Kassem: "absurd, humiliating, insulting" &middot; UN peacekeeper killed &middot; 4 killed in Israeli strikes June 4<br>
+<span style="color:var(--r)">&#8593; DETERIORATED</span> D1 (Hormuz Closure) track: Iran's condition for deal now farther than ever &middot; Interactions #4/#15/#20 DETERIORATED &mdash; CONDITION UNMET<br>
+<span style="color:var(--w)">&#8595; OIL -3%</span> Brent $95.03 (-2.8%) &middot; WTI $93.04 (-3.1%) &middot; Trump reluctant to resume full-scale war &middot; ceasefire hopes now invalidated by Hezbollah rejection &mdash; reprice risk<br>
+<span style="color:var(--go)">&#8595; REDUCED</span> B1 (National Diesel) re-trigger urgency: Brent $95 (down from $101) &middot; still NOT TRIGGERED at $5.35 EIA<br>
+<span style="color:var(--bl)">&#10003; CONFIRMED</span> DC Drought Watch 3rd consecutive year &middot; 6M residents &middot; Potomac 130-yr lows &middot; -8 inch 2-year precip deficit<br>
+<span style="color:var(--w)">&#8594; UNCHANGED</span> Weighted 16/299 &middot; Unweighted 24/36 &middot; 7 triggers &middot; H1 (Lake Mead Tier 2) 15 ft &middot; L1 (DEF Shortage) Day 23
+</div></div>
+
+<div class="crit">
+  <div class="crit-t">&#9650; HEZBOLLAH FORMALLY REJECTS CEASEFIRE &mdash; UN PEACEKEEPER KILLED &mdash; IRAN'S D1 CONDITION NOW UNMET</div>
+  <div class="crit-b">Hezbollah leader Naim Kassem formally rejected the latest Lebanon ceasefire Thursday in a written statement read on TV, calling it "absurd, humiliating and insulting." He said the demand for Hezbollah fighters to leave southern Lebanon under fire would mean "surrender, defeat and achieving the enemy's goals." No commitment to stop fighting. Demands complete Israeli withdrawal. Israel refuses. Israeli strikes killed 4. A Serbian UN peacekeeper was killed when a mortar struck near Marjayoun. Lebanese President Aoun called the deal "the last chance" &mdash; now closed. Iran has conditioned any D1 (Hormuz Closure) deal on an end to Lebanon fighting. With Hezbollah's rejection, that condition is farther from fulfillment than at any point since the war began. Trump simultaneously told reporters a ceasefire "remains in place" and a deal could come "over the weekend." <strong style="color:var(--r)">OC13: Trump's claims structurally incompatible with Hezbollah's formal rejection and ongoing strikes. Oil dropped 3% on ceasefire hopes now invalidated.</strong></div>
+</div>
+
+<div class="blk ok"><div class="bl">&#9672; SITREP 112 KEY VALIDATIONS &mdash; JUNE 4, 2026 &mdash; BATCH-SEARCH VERIFIED</div><div class="bb">
+<span style="color:var(--r)">&#9888; CONFIRMED</span> Hezbollah formally rejected Lebanon ceasefire &middot; Kassem written statement: "absurd, humiliating, insulting" &middot; demands full Israeli withdrawal &middot; AP/NPR<br>
+<span style="color:var(--r)">&#9888; CONFIRMED</span> Serbian UN peacekeeper killed &middot; two wounded &middot; mortar strike near Marjayoun &middot; UNIFIL confirmed<br>
+<span style="color:var(--r)">&#9888; CONFIRMED</span> Israeli strikes killed 4 in Lebanon June 4 &middot; drone strike killed motorcyclist Maaroub &middot; Sohmor (Bekaa Valley) strikes killed 3<br>
+<span style="color:var(--w)">&#9888; CONFIRMED</span> Trump: ceasefire "remains in place" &middot; weekend deal possible &middot; reluctant to resume full-scale war &middot; CNBC<br>
+<span style="color:var(--ok)">&#10003; CONFIRMED</span> Brent $95.03 (-2.8%) &middot; WTI $93.04 (-3.1%) &middot; Trump reluctance + Israel-Lebanon ceasefire announcement (now invalidated by Hezbollah) &middot; CNBC<br>
+<span style="color:var(--ok)">&#10003; CONFIRMED</span> B1 (National Diesel) NOT TRIGGERED &mdash; $5.35 EIA week ending June 1 &middot; CA $7.28 &middot; OK $4.72 &middot; +$1.89 vs 2025<br>
+<span style="color:var(--bl)">&#10003; CONFIRMED</span> DC Drought Watch 3rd consecutive year &middot; 6M residents DC/MD/VA &middot; Potomac 130-year lows &middot; -8 inch 2-year precip deficit<br>
+<span style="color:var(--r)">&#9888; NOTE</span> US Drought Monitor OVERDUE &middot; last reading May 26 (9 days stale) &middot; R6 (National Drought Coverage) 70.83% CONUS figure stale
+</div></div>
+
+<div class="blk r"><div class="bl">&#8855; CONVERGENCE WATCH &mdash; CASCADE LOCKED &middot; DROUGHT MONITOR OVERDUE &middot; EU FISCAL CLIFF JUNE 7</div><div class="bb">
+Hezbollah rejection is the most significant diplomatic setback since the May 24&ndash;27 peace framework collapse. Iran's D1 (Hormuz Closure) precondition: end Lebanon fighting. Hezbollah just made that condition impossible. D2 (Israel-Hezbollah) must resolve before D1 (Hormuz Closure) can resolve. Both deteriorating. Domestic cascade advances independently: H1 (Lake Mead Tier 2) 15 ft from cliff, IEA Red Zone ~29 days.
+<div class="chain">
+  <div class="nd r">D2 Ceasefire Rejected</div><div class="arr">&rarr;</div>
+  <div class="nd r">D1 Condition Unmet</div><div class="arr">&rarr;</div>
+  <div class="nd w">EU Fiscal Cliff June 7</div><div class="arr">&rarr;</div>
+  <div class="nd go">H7 (Upper Basin) ~June 30</div><div class="arr">&rarr;</div>
+  <div class="nd r">IEA Red Zone July&ndash;Aug</div><div class="arr">&rarr;</div>
+  <div class="nd r">H1 (Mead) Cliff Late Aug</div>
+</div></div></div>
+
+<div class="als">
+  <div class="al r"><div class="ai">&#9650;</div><div><span style="color:var(--r);font-weight:700">HEZBOLLAH FORMALLY REJECTS &mdash; CASCADE LOCKED: </span>Kassem formal written statement read on TV. "Absurd, humiliating and insulting." Demand for Hezbollah fighters to leave southern Lebanon under attack = "surrender, defeat and achieving the enemy's goals." No commitment to stop fighting. Demands complete Israeli withdrawal. Israel refuses. Lebanese President Aoun: "the last chance" &mdash; now closed. 4 killed in Israeli strikes. UN peacekeeper killed near Marjayoun. Structural consequence: Iran's D1 (Hormuz Closure) condition (end Lebanon fighting) is now impossible to meet on any near-term timeline. Self-blocking: Hezbollah won't stop until Israel withdraws. Israel won't withdraw. Iran won't negotiate D1 (Hormuz Closure) until Lebanon ends. No resolution pathway.</div></div>
+  <div class="al w"><div class="ai">&#9888;</div><div><span style="color:var(--w);font-weight:700">TRUMP CLAIMS "REMAINS IN PLACE" &mdash; OIL -3% &mdash; OC13: </span>Trump told reporters ceasefire "remains in place" and deal possible "over the weekend." Reports indicate reluctant to resume full-scale war. Brent fell to $95.03 (-2.8%), WTI to $93.04 (-3.1%) on Trump reluctance and Israel-Lebanon ceasefire announcement. Those hopes are now formally invalidated by Hezbollah's rejection. OC13 applied. Markets will need to reprice. May 24&ndash;27 institutional memory applies.</div></div>
+  <div class="al ok"><div class="ai">&#9733;</div><div><span style="color:var(--go);font-weight:700">B1 (NATIONAL DIESEL) &mdash; CRUDE DROP REDUCES RE-TRIGGER URGENCY: </span>Brent fell from $101.36 (June 3) to $95.03 (June 4). B1 re-trigger urgency reduced at $95. Still NOT TRIGGERED at $5.35 EIA. CA $7.28 most expensive. OK $4.72 least costly. +$1.89 above year-ago. BUT: Hezbollah rejection invalidates ceasefire hopes that drove today's drop &mdash; crude may surge when markets fully process the rejection. Monitor next EIA release.</div></div>
+  <div class="al bl"><div class="ai">&#9670;</div><div><span style="color:var(--bl);font-weight:700">DC DROUGHT WATCH &mdash; 3RD CONSECUTIVE YEAR &mdash; 6M RESIDENTS: </span>Third consecutive year Drought Watch for DC/MD/VA &mdash; nearly 6 million residents. Potomac at 130-year lows. Two-year precip deficit approximately 8 inches. Potomac supplies 78% of region's drinking water. Upstream reservoirs ~99% full (buffer used 1999, 2002, 2010). DC is in R3 (PJM Capacity Reserve) territory (6,525 MW shortfall). Voluntary conservation requested. R6 (National Drought Coverage) Drought Monitor OVERDUE &mdash; 9 days stale.</div></div>
+  <div class="al pu"><div class="ai">&#9670;</div><div><span style="color:var(--pu);font-weight:700">EU FISCAL CLIFF &mdash; DAY 5 OF 7 &mdash; GREEK YELLOW CARDS: </span>European Commission issued 10 yellow cards to Greece including diesel taxation. Greece applies exceptionally low excise tax on diesel. If subsidy NOT extended: 37% annual price increase. Decision window closes June 7. Spain approved &euro;54M June 2. Greece is the decisive test.</div></div>
+</div>
+
+<div class="sc">
+  <div class="sk r"><div class="sk-l">Weighted Score</div><div class="sk-v">16<span style="font-size:13px;color:var(--mu)">/299</span></div><div class="sk-s">Unchanged &middot; D1 N/A weight</div><div class="sk-d">P15 GAP WIDE</div></div>
+  <div class="sk w"><div class="sk-l">Unweighted Severity</div><div class="sk-v">24<span style="font-size:13px;color:var(--mu)">/36</span></div><div class="sk-s">D2=4 max &middot; D1=3 &middot; 66.7%</div><div class="sk-d">QUALITATIVE AHEAD</div></div>
+  <div class="sk r"><div class="sk-l">D2 Status</div><div class="sk-v" style="font-size:11px;">REJECTED</div><div class="sk-s">Kassem: "absurd, humiliating, insulting" &middot; UN peacekeeper killed</div><div class="sk-d">&#8593; BIGGEST D2 SETBACK SINCE DAY 1</div></div>
+  <div class="sk w"><div class="sk-l">Brent Crude</div><div class="sk-v" style="font-size:18px;">$95.03</div><div class="sk-s">-2.8% &middot; ceasefire hopes invalidated &middot; reprice risk</div><div class="sk-d">&#9888; MARKETS MAY REPRICE</div></div>
+  <div class="sk w"><div class="sk-l">B1 (National Diesel)</div><div class="sk-v" style="font-size:18px;">$5.35</div><div class="sk-s">NOT TRIGGERED &middot; CA $7.28 &middot; OK $4.72</div><div class="sk-d">CRUDE DROP REDUCES URGENCY</div></div>
+  <div class="sk bl"><div class="sk-l">DC Drought Watch</div><div class="sk-v" style="font-size:11px;">3RD YEAR</div><div class="sk-s">6M residents &middot; -8 inch precip deficit</div><div class="sk-d">R3 (PJM) / R6 CASCADE</div></div>
+  <div class="sk go"><div class="sk-l">H1 (Mead) Cliff</div><div class="sk-v" style="font-size:18px;">15 ft</div><div class="sk-s">1,050 ft &middot; 70% cut at 1,035 ft &middot; late August</div><div class="sk-d">IEA RED ZONE ~29 DAYS</div></div>
+  <div class="sk r"><div class="sk-l">Drought Monitor</div><div class="sk-v" style="font-size:11px;">OVERDUE</div><div class="sk-s">May 26 last reading &middot; 9 days stale</div><div class="sk-d">&#9888; R6 FIGURE STALE</div></div>
+</div>
+
+<div class="sh">
+  <div class="sc2"><div class="sd">S109 &middot; June 1</div><div class="sr">Wtd <span class="v">20/299</span></div><div class="sr">Unwtd <span class="v">31/36</span></div></div>
+  <div class="sc2"><div class="sd">S110 &middot; June 2</div><div class="sr">Wtd <span class="v">16/299</span></div><div class="sr">Unwtd <span class="v">24/36</span></div></div>
+  <div class="sc2"><div class="sd">S111 &middot; June 3</div><div class="sr">Wtd <span class="v">16/299</span></div><div class="sr">Unwtd <span class="v">24/36</span></div></div>
+  <div class="sc2"><div class="sd">S111 &middot; June 3</div><div class="sr">Wtd <span class="v">16/299</span></div><div class="sr">Unwtd <span class="v">24/36</span></div></div>
+  <div class="sc2"><div class="sd">S111 &middot; June 3</div><div class="sr">Wtd <span class="v">16/299</span></div><div class="sr">Unwtd <span class="v">24/36</span></div></div>
+  <div class="sc2 now"><div class="sd">S112 &middot; June 4 &#9664;</div><div class="sr">Wtd <span class="v">16/299</span></div><div class="sr"><span style="font-size:7px;color:var(--r)">Hezbollah rejects &middot; Oil -3%</span></div></div>
+</div>
+
+<div class="sec">
+<div class="sh2"><div class="sn">01</div><div class="dot"></div><div class="st">Diplomatic &amp; Military Status &mdash; June 4</div></div>
+<div class="two">
+  <div>
+    <div class="cd" style="margin-bottom:9px;"><div class="ct">D2 (Israel-Hezbollah) &mdash; Ceasefire Formally Rejected</div>
+    <table class="kv">
+      <tr><td>Kassem statement</td><td class="r">Formal written rejection read on TV &middot; "absurd, humiliating, insulting"</td></tr>
+      <tr><td>Hezbollah demand</td><td class="r">Complete Israeli withdrawal before any ceasefire &middot; no commitment to stop fighting</td></tr>
+      <tr><td>Israel response</td><td class="r">Refuses to withdraw &middot; 4 killed in strikes Thursday &middot; drone strike Maaroub</td></tr>
+      <tr><td>UN peacekeeper</td><td class="r">Serbian soldier killed &middot; two wounded &middot; mortar near Marjayoun</td></tr>
+      <tr><td>Aoun (Lebanon)</td><td class="w">Called deal "last chance" &mdash; now closed</td></tr>
+      <tr><td>D2 trend</td><td class="r">PEACE &rarr; COLLAPSED &rarr; INFRA &rarr; TERRITORIAL &rarr; DEEPEST &rarr; FRAYING &rarr; FICTION &rarr; <strong>FORMALLY REJECTED</strong></td></tr>
+    </table></div>
+    <div class="cd"><div class="ct">D1 (Hormuz Closure) &amp; Oil</div>
+    <table class="kv">
+      <tr><td>Iran's condition</td><td class="r">End Lebanon fighting before D1 (Hormuz) deal &middot; now unmet</td></tr>
+      <tr><td>Status</td><td class="r">Condition farther from being met than at any prior point &middot; cascade locked</td></tr>
+      <tr><td>Trump claim</td><td class="w">Ceasefire "remains in place" &middot; weekend deal possible &middot; OC13 applied</td></tr>
+      <tr><td>Brent crude</td><td class="w">$95.03 (-2.8%) &middot; priced in ceasefire hopes now invalidated</td></tr>
+      <tr><td>Reprice risk</td><td class="r">When Hezbollah rejection fully processed &mdash; crude may surge toward $100+</td></tr>
+      <tr><td>Blockade Day 55</td><td class="w">CENTCOM disabled Botswana-flagged tanker &middot; crew ignored warnings 24+ hrs</td></tr>
+    </table></div>
+  </div>
+  <div>
+    <div class="ic"><div class="ich"><div class="ica">Self-Blocking Cascade &mdash; D2 &rarr; D1 &rarr; B1</div><div class="ics r">CASCADE LOCKED</div></div><div class="icb">Iran's precondition for D1 (Hormuz Closure) resolution: end Lebanon fighting. Hezbollah's precondition: complete Israeli withdrawal. Israel: no withdrawal. Three categorical positions with no bridge. Interactions #4 / #15 / #20 all at DETERIORATED status. No resolution pathway visible on any near-term timeline.</div></div>
+    <div class="ic"><div class="ich"><div class="ica">OC13 &mdash; Trump vs Structural Reality</div><div class="ics w">MAXIMUM PARADOX</div></div><div class="icb">Trump: ceasefire "remains in place" &middot; deal "over the weekend." Reality: Hezbollah formally rejected ceasefire &middot; Israel launched fresh strikes killing 4 &middot; UN peacekeeper killed &middot; Iran's D1 (Hormuz) condition unmet. May 24&ndash;27 institutional memory (MOU &rarr; collapsed &rarr; fabrication in 4 days) applies.</div></div>
+    <div class="ic"><div class="ich"><div class="ica">DC Drought Watch &mdash; R3 (PJM) Territory</div><div class="ics bl">3RD CONSECUTIVE YEAR</div></div><div class="icb">6M residents DC/MD/VA. Potomac at 130-year lows. Two-year precip deficit 8 inches. Potomac supplies 78% of region's drinking water. Reservoirs ~99% full (buffer used 1999, 2002, 2010). DC is in R3 (PJM Capacity Reserve) territory (6,525 MW shortfall). R6 (National Drought Coverage) Drought Monitor OVERDUE &mdash; 9 days stale.</div></div>
+  </div>
+</div>
+</div>
+
+<div class="sec">
+<div class="sh2"><div class="sn">02</div><div class="dot"></div><div class="st">Water &middot; Energy &middot; Grid &mdash; June 4</div></div>
+<div class="three">
+  <div class="cd"><div class="ct">Colorado River System</div>
+  <table class="kv">
+    <tr><td>H1 (Lake Mead Tier 2)</td><td class="r">1,050 ft &middot; 15 ft from cliff &middot; 1 ft/5-7 days &middot; late August</td></tr>
+    <tr><td>H5 (Powell Power Pool)</td><td class="w">38.5% avg May &middot; min power pool August &middot; DROA zero-sum</td></tr>
+    <tr><td>IEA Red Zone</td><td class="r">July&ndash;Aug &middot; ~29 days &middot; H1 (Mead) cliff overlap</td></tr>
+    <tr><td>H7 (Upper Basin)</td><td class="w">APPROACHING &middot; USBR proposal ~June 30</td></tr>
+    <tr><td>K4 (SW Blackout)</td><td class="w">MONITORING &middot; H5 &rarr; K4 NERC-validated</td></tr>
+  </table></div>
+  <div class="cd"><div class="ct">R-Series &middot; Grid</div>
+  <table class="kv">
+    <tr><td>R6 (Drought)</td><td class="r">TRIGGERED Ph3 &middot; 70.83% CONUS &mdash; 9 DAYS STALE</td></tr>
+    <tr><td>R3 (PJM Reserve)</td><td class="r">HIGH ALERT &middot; 6,525 MW &middot; DC in PJM &middot; 3rd year Drought Watch</td></tr>
+    <tr><td>R1 (SE Hydro-Thermal)</td><td class="w">APPROACHING &middot; Charlotte Stage 2 &middot; DC 3rd year</td></tr>
+    <tr><td>R5 (Nuclear Cooling)</td><td class="w">NOT YET &middot; Potomac drought expanding preconditions</td></tr>
+    <tr><td>K2 (Grid Emergency)</td><td class="r">TRIGGERED &middot; NERC WECC-NW elevated</td></tr>
+  </table></div>
+  <div class="cd"><div class="ct">Energy &amp; Fuel</div>
+  <table class="kv">
+    <tr><td>Brent crude</td><td class="w">$95.03 (-2.8%) &middot; reprice risk on Hezbollah rejection</td></tr>
+    <tr><td>WTI crude</td><td class="w">$93.04 (-3.1%) &middot; down from $95.27 June 3</td></tr>
+    <tr><td>B1 (National Diesel)</td><td class="ok">$5.35 EIA &middot; NOT TRIGGERED &middot; CA $7.28 &middot; OK $4.72</td></tr>
+    <tr><td>B1 re-trigger</td><td class="w">Reduced urgency at $95 &middot; reprice could push back above $100</td></tr>
+    <tr><td>L1 (DEF Shortage)</td><td class="pu">THRESHOLD Day 23 &middot; supply chain compounds</td></tr>
+  </table></div>
+</div>
+</div>
+
+<div class="sec">
+<div class="sh2"><div class="sn">03</div><div class="dot"></div><div class="st">Tripwire Matrix &mdash; 7 Active Triggers &mdash; June 4, 2026</div></div>
+<div class="tbl-full"><table class="t">
+<colgroup><col class="c-id"><col class="c-name"><col class="c-cat"><col class="c-wt"><col class="c-status"><col class="c-ir"><col class="c-assess"></colgroup>
+<thead><tr><th>ID</th><th>Tripwire Name</th><th>Cat</th><th>Wt</th><th>Status</th><th>IR Tags</th><th>Assessment &mdash; June 4, 2026</th></tr></thead>
+<tbody>
+<tr class="tr"><td><strong style="color:var(--r)">A3</strong></td><td style="color:var(--r)">Crop Failure&mdash;Wheat</td><td>Ag</td><td><span class="wb a">2</span></td><td><span class="pl pt">TRIGGERED</span></td><td><span class="ir">IR-2 IR-4</span></td><td>KS 25% G/E &middot; OK 12% G/E &middot; 70.83% CONUS drought (stale) &middot; DC Drought Watch 3rd year adds eastern pressure &middot; feeds H12 (Ogallala Depletion Rate) cascade</td></tr>
+<tr class="tr"><td><strong style="color:var(--r)">A7</strong></td><td style="color:var(--r)">Cattle Herd Collapse</td><td>Ag</td><td><span class="wb a">2</span></td><td><span class="pl pt">TRIGGERED</span></td><td><span class="ir">IR-2 IR-4</span></td><td>75-year lows &middot; H5N1 mixing vessel &middot; ND forage crisis &middot; feeds H12 (Ogallala Depletion Rate) cascade</td></tr>
+<tr class="of"><td style="color:var(--mu)">B1</td><td style="color:var(--mu)">National Diesel</td><td>Energy</td><td><span class="wb">4</span></td><td><span class="pl pmu">NOT TRIGGERED &mdash; $5.35</span></td><td><span class="ir">IR-3</span></td><td>$5.35 EIA week ending June 1 &middot; CA $7.28 most expensive &middot; OK $4.72 least costly &middot; +$1.89 vs 2025 &middot; Brent $95.03 (down from $101) reduces re-trigger urgency &middot; crude reprice risk if Hezbollah rejection processed by markets</td></tr>
+<tr class="tr"><td><strong style="color:var(--r)">C10</strong></td><td style="color:var(--r)">Consumer Confidence</td><td>Econ</td><td><span class="wb a">2</span></td><td><span class="pl pt">TRIGGERED</span></td><td><span class="ir">IR-6</span></td><td>Michigan 44.8 ALL-TIME LOW sustained &middot; 57% finances eroding &middot; war Day 55 with no resolution pathway &middot; Hezbollah rejection deepens uncertainty</td></tr>
+<tr class="tr"><td><strong style="color:var(--r)">D1</strong></td><td style="color:var(--r)">Hormuz Closure</td><td>Geo</td><td><span class="wb a">N/A</span></td><td><span class="pl pt">TRIGGERED &mdash; DIRECT CONFLICT DAY 55</span></td><td><span class="ir">IR-7</span></td><td>Day 55 &middot; Iranian drones hit Kuwait airport June 3 &middot; US struck Qeshm Island &middot; Trump claims ceasefire "remains in place" &middot; OC13 applied &middot; Iran's condition (end Lebanon fighting) now unmet after Hezbollah rejection</td></tr>
+<tr class="hw"><td><span style="color:var(--w)">D2</span></td><td style="color:var(--w)">Israel-Hezbollah</td><td>Geo</td><td><span class="wb">3</span></td><td><span class="pl pw">HIGH ALERT &mdash; CEASEFIRE FORMALLY REJECTED</span></td><td><span class="ir">IR-7</span></td><td>FORMALLY REJECTED June 4 &middot; Kassem: "absurd, humiliating, insulting" &middot; demands full Israeli withdrawal &middot; Israel refuses &middot; UN peacekeeper killed &middot; 4 killed in strikes &middot; 3,485+ total dead &middot; Iran's D1 (Hormuz) deal condition now unmet &middot; severity: 4 (maximum)</td></tr>
+<tr class="mo"><td>D3</td><td>US Boots on Ground</td><td>Geo</td><td><span class="wb">5</span></td><td><span class="pl pm">MONITORING</span></td><td></td><td>15,000 troops deployed &middot; US struck Qeshm Island June 3 &middot; Trump reluctant to resume full-scale war &middot; House resolution calls for halt unless authorized</td></tr>
+<tr class="tr"><td><strong style="color:var(--r)">D5</strong></td><td style="color:var(--r)">UAE Under Attack</td><td>Geo</td><td><span class="wb a">N/A</span></td><td><span class="pl pt">TRIGGERED</span></td><td></td><td>3,300 drones/missiles &middot; ADNOC H1 2027 &middot; war-onset trigger &middot; UAE calls for "firm and cohesive Gulf response"</td></tr>
+<tr class="hw"><td><span style="color:var(--w)">D6</span></td><td style="color:var(--w)">Cyberattack</td><td>Geo</td><td><span class="wb">4</span></td><td><span class="pl pw">HIGH ALERT &mdash; 96+ DAYS</span></td><td></td><td>Iran blackout 96+ days &middot; conflict Day 55 compounds cyber domain risk</td></tr>
+<tr class="hw"><td><span style="color:var(--w)">D9</span></td><td style="color:var(--w)">Malacca Strait</td><td>Geo</td><td><span class="wb">4</span></td><td><span class="pl pw">HIGH ALERT</span></td><td></td><td>Panama Canal near max &middot; Gulf conflict Day 55 &middot; triple chokepoint risk</td></tr>
+<tr class="hw"><td><span style="color:var(--w)">H1</span></td><td style="color:var(--w)">Lake Mead Tier 2</td><td>Water</td><td><span class="wb">3</span></td><td><span class="pl pw">HIGH ALERT &mdash; 15 FT</span></td><td><span class="ir">IR-2</span></td><td>1,050 ft &middot; 15 ft from 1,035 ft cliff &middot; 1 ft/5-7 days &middot; late August &middot; feeds H5 (Powell Power Pool) &rarr; K4 (Southwest Blackout) cascade</td></tr>
+<tr class="nw"><td><span style="color:var(--bl)">H11</span></td><td style="color:var(--bl)">Edwards Aquifer TX</td><td>Water</td><td><span class="wb bl">3</span></td><td><span class="pl pbl">APPROACHING</span></td><td><span class="ir">IR-2</span></td><td>2.5M people &middot; Stage 2 May 30 (J-17 640.2 ft) &middot; was Stage 4/5 April 29 &middot; 44 consecutive drought months &middot; intersects A8 (Irrigation Water Cuts) &middot; R1 (SE Hydro-Thermal)</td></tr>
+<tr class="nw"><td><span style="color:var(--bl)">H12</span></td><td style="color:var(--bl)">Ogallala Depletion Rate</td><td>Water</td><td><span class="wb bl">3</span></td><td><span class="pl pbl">APPROACHING</span></td><td><span class="ir">IR-2 IR-4</span></td><td>SW KS -1.52 ft/yr &middot; NW KS -1.34 ft/yr &middot; Wallace County 80%+ depleted &middot; 30% KS access pts dry &middot; feeds A3 (Wheat) / A7 (Cattle) cascade</td></tr>
+<tr class="hw"><td><span style="color:var(--w)">H5</span></td><td style="color:var(--w)">Powell Power Pool</td><td>Water</td><td><span class="wb">4</span></td><td><span class="pl pw">HIGH ALERT &mdash; DROA ACTIVE</span></td><td><span class="ir">IR-2 IR-1</span></td><td>38.5% avg May &middot; Bureau 20% cut accelerates H1 (Lake Mead Tier 2) &middot; DROA zero-sum &middot; min power pool August</td></tr>
+<tr class="hw"><td><span style="color:var(--w)">H6</span></td><td style="color:var(--w)">Lake Mead Tier 3</td><td>Water</td><td><span class="wb">3</span></td><td><span class="pl pw">HIGH ALERT</span></td><td><span class="ir">IR-2</span></td><td>1,035 ft approaching late August &middot; Tier 3 probable late 2027</td></tr>
+<tr class="mo"><td>H7</td><td>Upper Basin Conflict</td><td>Water</td><td><span class="wb">3</span></td><td><span class="pl pm">APPROACHING</span></td><td><span class="ir">IR-1</span></td><td>USBR 40% cuts &middot; AZ Supreme Court prep &middot; final proposal ~June 30</td></tr>
+<tr class="nw"><td><span style="color:var(--bl)">H13</span></td><td style="color:var(--bl)">CA Central Valley Aquifer</td><td>Water</td><td><span class="wb bl">3</span></td><td><span class="pl pbl">APPROACHING</span></td><td><span class="ir">IR-2</span></td><td>21 critically overdrafted basins &middot; depletion +31% since 2019 &middot; 28 ft max subsidence (irreversible) &middot; intersects H3 (California Aqueduct) / O5 (Data Center Cooling)</td></tr>
+<tr class="tr"><td><strong style="color:var(--r)">K2</strong></td><td style="color:var(--r)">Grid Emergency</td><td>Grid</td><td><span class="wb a">3</span></td><td><span class="pl pt">TRIGGERED</span></td><td><span class="ir">IR-5 IR-1</span></td><td>NERC WECC-Northwest elevated &middot; DC in R3 (PJM Capacity Reserve) with Drought Watch 3rd year &middot; feeds H1 (Lake Mead) &rarr; K4 (Southwest Blackout) stress window</td></tr>
+<tr class="mo"><td>K4</td><td>Southwest Blackout</td><td>Grid</td><td><span class="wb">4</span></td><td><span class="pl pm">MONITORING</span></td><td><span class="ir">IR-5</span></td><td>H5 (Powell Power Pool) August deadline &middot; H5 &rarr; K4 NERC-validated &middot; IEA Red Zone ~29 days</td></tr>
+<tr class="th"><td><span style="color:var(--pu)">L1</span></td><td style="color:var(--pu)">DEF Shortage</td><td>Supply</td><td><span class="wb">4</span></td><td><span class="pl pp">THRESHOLD &mdash; DAY 23</span></td><td><span class="ir">IR-3</span></td><td>Day 23 post-threshold &middot; conflict Day 55 compounds supply chain pressure</td></tr>
+<tr class="mo"><td style="color:var(--go)">R1</td><td style="color:var(--go)">SE Hydro-Thermal</td><td>East</td><td><span class="wb g">3</span></td><td><span class="pl pm">APPROACHING</span></td><td><span class="ir">IR-2 IR-5</span></td><td>Lake Norman 5 ft below &middot; Charlotte Stage 2 &middot; DC Drought Watch 3rd year adds regional pressure &middot; R1 &rarr; R5 (Nuclear Cooling) &rarr; R3 (PJM) chain expanding</td></tr>
+<tr class="hw"><td style="color:var(--go)">R3</td><td style="color:var(--go)">PJM Capacity Reserve</td><td>East</td><td><span class="wb g">4</span></td><td><span class="pl pw">HIGH ALERT</span></td><td><span class="ir">IR-5</span></td><td>6,525 MW shortfall &middot; DC in PJM &middot; DC Drought Watch 3rd year increases summer demand risk</td></tr>
+<tr class="tr"><td style="color:var(--go)">R6</td><td style="color:var(--go)">National Drought Coverage</td><td>East</td><td><span class="wb g">2</span></td><td><span class="pl pt">TRIGGERED &mdash; PH3 (STALE)</span></td><td><span class="ir">IR-1 IR-2 IR-3 IR-4</span></td><td>70.83% CONUS D0&ndash;D4 (May 26 &mdash; 9 DAYS STALE) &middot; Drought Monitor OVERDUE &middot; DC Drought Watch 3rd year validates eastern expansion regardless</td></tr>
+</tbody>
+</table></div>
+<div class="p15"><strong>P15 NOTE:</strong> Weighted 16/299 (5.4%). Unweighted 24/36 (66.7%). Hezbollah formal rejection, UN peacekeeper killed, Iran's D1 (Hormuz) condition now unmet, oil -3% on Trump reluctance &mdash; none captured in weighted score. D1 (Hormuz Closure) carries N/A weight. Gap remains wide.</div>
+</div>
+
+<div class="sec">
+<div class="sh2"><div class="sn">04</div><div class="dot"></div><div class="st">Interaction Chains &mdash; SITREP 112</div></div>
+<table class="ix">
+<colgroup><col class="ic-n"><col class="ic-i"><col class="ic-s"></colgroup>
+<thead><tr><th>#</th><th>Interaction</th><th>Status &mdash; June 4, 2026</th></tr></thead>
+<tbody>
+<tr class="det"><td style="color:var(--r)">1</td><td>H5 (Powell Power Pool) &rarr; K4 (Southwest Blackout)</td><td style="color:var(--r)">DETERIORATING &middot; H1 (Lake Mead Tier 2) 1,050 ft &middot; Hoover cliff late August &middot; IEA Red Zone ~29 days &middot; independent of D1 (Hormuz Closure)</td></tr>
+<tr class="det"><td style="color:var(--r)">4</td><td>D1 (Hormuz Closure) &rarr; D2 (Israel-Hezbollah)</td><td style="color:var(--r)">DETERIORATED &mdash; CASCADE LOCKED &middot; Hezbollah formally rejected ceasefire &middot; Israel refuses to withdraw &middot; Iran's D1 (Hormuz) condition now unmet &middot; no resolution pathway visible</td></tr>
+<tr class="det"><td style="color:var(--r)">15</td><td>Ceasefire Paradox &rarr; D1 / D2 / D5 (UAE)</td><td style="color:var(--r)">DETERIORATED &mdash; FORMALLY REJECTED &middot; Kassem written statement &middot; UN peacekeeper killed &middot; 4 killed in Israeli strikes &middot; maximum deterioration</td></tr>
+<tr class="det"><td style="color:var(--r)">20</td><td>D1 (Hormuz Closure) &rarr; Nuclear Negotiation</td><td style="color:var(--r)">DETERIORATED &mdash; CONDITION UNMET &middot; Iran demands Lebanon fighting end &middot; Hezbollah rejection makes condition impossible on current terms &middot; OC13 on Trump weekend deal claim</td></tr>
+<tr class="mix"><td style="color:var(--w)">3</td><td>D1 (Hormuz) &rarr; P3 (Asian Refinery) &rarr; B1 (National Diesel)</td><td style="color:var(--w)">MIXED &mdash; B1 NOT TRIGGERED ($5.35) &middot; Brent $95.03 reduces urgency &middot; BUT Hezbollah rejection may drive crude back above $100 when markets reprice</td></tr>
+<tr class="det"><td style="color:var(--r)">22</td><td>R1 (SE Hydro-Thermal) &rarr; R5 (Nuclear Cooling) &rarr; R3 (PJM Capacity Reserve)</td><td style="color:var(--r)">PRECONDITIONS EXPANDING &middot; DC Drought Watch 3rd year &middot; Potomac -8 inch precip deficit &middot; R6 (National Drought Coverage) Drought Monitor OVERDUE</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="sec">
+<div class="sh2"><div class="sn">05</div><div class="dot"></div><div class="st">Commander&rsquo;s Assessment &middot; Severity Scores &middot; SITREP 112</div></div>
+<div class="two">
+  <div class="cd"><div class="ct">Unweighted Severity &mdash; 24/36 (Unchanged)</div>
+  <table class="kv">
+    <tr><td>S1 D1 (Hormuz)</td><td class="w">3 &mdash; Day 55 &middot; Kuwait June 3 &middot; Iran condition now unmet</td></tr>
+    <tr><td>S2 D2 (Lebanon)</td><td class="r">4 &mdash; FORMALLY REJECTED &middot; UN peacekeeper killed &middot; 4 killed June 4 &middot; MAX</td></tr>
+    <tr><td>S3 D3 (Boots)</td><td class="w">3 &mdash; 15,000 troops &middot; US struck Iran June 3 &middot; Trump reluctant</td></tr>
+    <tr><td>S4 D5 (UAE)</td><td class="w">3 &mdash; 3,300 drones/missiles &middot; ADNOC H1 2027</td></tr>
+    <tr><td>S5 D6 (Cyber)</td><td>2 &mdash; Iran blackout 96+ days</td></tr>
+    <tr><td>S6 D9 (Malacca)</td><td>2 &mdash; Panama near max &middot; Day 55 Gulf conflict</td></tr>
+    <tr><td style="color:var(--ok)">S7 B1 (Diesel)</td><td class="ok">0 &mdash; NOT TRIGGERED $5.35 &middot; Brent $95 reduces urgency</td></tr>
+    <tr><td>S8 L1 (DEF)</td><td>2 &mdash; Threshold Day 23</td></tr>
+    <tr><td>S9 C10 (Confidence)</td><td>2 &mdash; Michigan 44.8 ATL &middot; war Day 55</td></tr>
+    <tr><td>S10 Water/Grid</td><td>2 &mdash; H1 (Mead) 15 ft &middot; DC 3rd year &middot; ~29d Red Zone</td></tr>
+    <tr><td>S11 Diplomacy</td><td>2 &mdash; Hezbollah rejection &middot; OC13 applied</td></tr>
+    <tr><td><strong>TOTAL</strong></td><td class="w"><strong>24/36 &mdash; 66.7% of Maximum</strong></td></tr>
+  </table></div>
+  <div class="ic" style="margin-bottom:0;">
+    <div class="ich"><div class="ica">Commander&rsquo;s Assessment &mdash; SITREP 112 &mdash; June 4, 2026</div><div class="ics r">CRITICAL &mdash; CASCADE LOCKED</div></div>
+    <div class="icb"><div class="assess">
+      <p>June 4 is the day the diplomatic cascade locked. Hezbollah's formal rejection of the Lebanon ceasefire is a written statement, read on television, by the organization's leader. Kassem called the terms "absurd, humiliating and insulting." He said Hezbollah made no commitment to stop fighting. He demanded complete Israeli withdrawal. Israel refused. A UN peacekeeper died. Four more Lebanese were killed in Israeli strikes Thursday.</p>
+      <p>The strategic consequence is structural: Iran has conditioned any broader D1 (Hormuz Closure) resolution on an end to Lebanon fighting. Hezbollah's rejection makes that condition impossible to meet on any near-term timeline. The self-blocking cascade is now multiply locked: Hezbollah won't stop fighting until Israel withdraws. Israel won't withdraw. Iran won't negotiate D1 (Hormuz Closure) until Lebanon fighting ends. D1 stays active. Brent stays elevated. B1 (National Diesel) re-trigger risk remains latent.</p>
+      <p>Trump told reporters a ceasefire "remains in place" and a deal could come "over the weekend." Oil dropped 3% on these signals. But the oil market priced in ceasefire hopes that Hezbollah formally invalidated hours later. When markets fully process the rejection, crude may reprice upward. Domestically: DC is in its third consecutive year of Drought Watch. Six million residents. The Potomac is at 130-year lows. H1 (Lake Mead Tier 2) remains 15 feet from the Hoover cliff. The IEA Red Zone is approximately 29 days away. Two cascades advancing simultaneously with no near-term resolution in either.</p>
+    </div></div>
+  </div>
+</div>
+</div>
+
+<div class="sec">
+<div class="sh2"><div class="sn">06</div><div class="dot"></div><div class="st">Tasks &middot; Preparedness &middot; Sources &mdash; SITREP 112</div></div>
+<div class="tl" style="margin-bottom:10px;">
+  <div class="tr2 done"><div class="ti">&#10003;</div><div class="tn">Batch searches verified &middot; Hezbollah formal rejection confirmed &middot; UN peacekeeper killed confirmed &middot; Oil -3% Brent $95.03 confirmed &middot; DC Drought Watch 3rd year confirmed &middot; D2 updated FORMALLY REJECTED &middot; Interactions #4/#15/#20 updated &middot; L1 updated Day 23</div><div class="td">COMPLETE</div></div>
+  <div class="tr2 crit2"><div class="ti">&#9888;</div><div class="tn">CRUDE REPRICE WATCH &middot; Brent $95.03 priced in ceasefire hopes now invalidated by Hezbollah rejection &middot; May surge back toward $100+ when markets fully process &middot; B1 (National Diesel) re-trigger risk returns if Brent holds above $100</div><div class="td">ONGOING</div></div>
+  <div class="tr2 crit2"><div class="ti">&#9888;</div><div class="tn">R6 (NATIONAL DROUGHT COVERAGE) DROUGHT MONITOR OVERDUE &middot; Last reading May 26 &mdash; 9 days stale &middot; DC Drought Watch 3rd year validates eastern expansion regardless of reading</div><div class="td">OVERDUE</div></div>
+  <div class="tr2 watch"><div class="ti">&#9679;</div><div class="tn">EU fiscal cliff closes JUNE 7 &middot; Greece diesel subsidy decision &middot; 37% hike risk if NOT extended &middot; Day 5 of 7 &middot; Spain acted; Greece is the test</div><div class="td">JUNE 7</div></div>
+  <div class="tr2 watch"><div class="ti">&#9679;</div><div class="tn">Trump weekend deal claim &mdash; assess with OC13 &middot; Structural conditions (Hezbollah rejection + Israel non-withdrawal) make "over the weekend" implausible &middot; Monitor for Iranian confirmation or further rejection</div><div class="td">WEEKEND</div></div>
+  <div class="tr2 watch"><div class="ti">&#9679;</div><div class="tn">H7 (Upper Basin Conflict) USBR Colorado River final proposal ~June 30 &middot; H1 (Lake Mead Tier 2) cliff approaching &middot; H5 (Powell Power Pool) August deadline</div><div class="td">~JUNE 30</div></div>
+</div>
+
+<div class="pr">
+  <div class="ph"><div class="pht">Preparedness &mdash; Ceasefire Rejected &middot; Crude May Reprice &middot; DC Drought Watch 3rd Year</div></div>
+  <div class="pc"><strong style="color:var(--r)">WHAT CHANGED:</strong> Hezbollah formally rejected Lebanon ceasefire &middot; UN peacekeeper killed &middot; Iran's D1 condition now unmet &middot; cascade locked &middot; oil -3% on ceasefire hopes now invalidated<br>
+  <strong style="color:var(--mu)">HONEST ASSESSMENT:</strong> The diplomatic cascade that could resolve the conflict has locked. Self-blocking structure (Hezbollah &rarr; Israel &rarr; Iran &rarr; D1 &rarr; B1) has no near-term resolution mechanism. Plan for conflict continuation.</div>
+  <div class="pt2 tnow"><div class="ptl">&#8901; IMMEDIATE</div>
+    <div class="pi"><div class="pb">&rarr;</div><div><strong>DC/MD/VA RESIDENTS:</strong> Drought Watch 3rd year. 6M residents. Voluntary conservation. Potomac 130-yr lows. -8 inch 2-year precip deficit. Limit showers under 5 minutes &middot; full loads only &middot; fix leaks &middot; no home car washing.</div></div>
+    <div class="pi"><div class="pb">&rarr;</div><div><strong>CRUDE REPRICE WATCH:</strong> Today's oil -3% priced in ceasefire hopes that Hezbollah formally invalidated. If crude surges back above $100 and holds 2+ weeks, B1 (National Diesel) re-trigger scenario returns. Monitor this weekend.</div></div>
+  </div>
+  <div class="pt2 tcaut"><div class="ptl">&#8901; What Data Does Not Support</div>
+    <div class="pi"><div class="pb">&mdash;</div><div>Trump's "weekend deal" claim is not supported by structural positions of Hezbollah, Israel, or Iran as of June 4. Assess with OC13 before making decisions based on diplomatic optimism.</div></div>
+  </div>
+</div>
+
+<div style="margin-top:10px;"><div class="ct">Sources Cited &mdash; SITREP 112 &mdash; June 4, 2026</div>
+<div class="sl">
+  <div class="si"><div class="sn2">S01</div><div><div class="sp">AP / NPR / Local10 / The Columbian</div><div class="st2">Hezbollah formally rejects Lebanon ceasefire &middot; Kassem: "absurd, humiliating, insulting" &middot; UN peacekeeper killed &middot; 4 killed in Israeli strikes</div><div class="su"><a href="https://www.local10.com/news/2026/06/04/hezbollah-rejects-latest-ceasefire-agreement-as-israeli-strikes-kill-4-in-lebanon/">local10.com &mdash; Hezbollah Rejects Ceasefire June 4</a></div></div></div>
+  <div class="si"><div class="sn2">S02</div><div><div class="sp">CNBC</div><div class="st2">Oil drops 3% &middot; Brent $95.03 (-2.8%) &middot; WTI $93.04 (-3.1%) &middot; Trump reluctant to resume full-scale war &middot; Israel-Lebanon ceasefire announced (now invalidated)</div><div class="su"><a href="https://www.cnbc.com/2026/06/04/oil-price-today-iran-war-hormuz-trump-israel-lebanon.html">cnbc.com &mdash; Oil Drops 3% June 4</a></div></div></div>
+  <div class="si"><div class="sn2">S03</div><div><div class="sp">Irish Independent / Reuters</div><div class="st2">Iranian drones hit Kuwait airport &middot; US strikes Qeshm Island &middot; Iran demands Lebanon ceasefire as D1 (Hormuz) condition &middot; UAE: "firm and cohesive Gulf response"</div><div class="su"><a href="https://www.independent.ie/world-news/iranian-drones-hit-kuwait-airport-as-us-strikes-near-strait-of-hormuz/a/155106128.html">independent.ie &mdash; Kuwait Airport / Qeshm Strikes</a></div></div></div>
+  <div class="si"><div class="sn2">S04</div><div><div class="sp">Montgomery Community Media / NBC4</div><div class="st2">DC Drought Watch 3rd consecutive year &middot; 6M residents DC/MD/VA &middot; Potomac 130-year lows &middot; -8 inch 2-year precip deficit &middot; voluntary conservation</div><div class="su"><a href="https://www.mymcmedia.org/voluntary-water-conservation-requested-as-region-enters-drought-watch/">mymcmedia.org &mdash; DC Drought Watch 3rd Year</a></div></div></div>
+  <div class="si"><div class="sn2">S05</div><div><div class="sp">Work Truck Online / EIA</div><div class="st2">B1 (National Diesel) $5.35 &middot; CA $7.28 most expensive &middot; OK $4.72 least costly &middot; +$1.89 vs 2025</div><div class="su"><a href="https://www.worktruckonline.com/news/june-diesel-trends-update-v2">worktruckonline.com &mdash; Diesel Prices June Update</a></div></div></div>
+  <div class="si"><div class="sn2">S06</div><div><div class="sp">Armenpress / CNN</div><div class="st2">Trump: ceasefire "remains in place" &middot; negotiations "very well" &middot; weekend deal possible &middot; OC13 applied</div><div class="su"><a href="https://armenpress.am/en/article/1251927">armenpress.am &mdash; Trump Weekend Deal Claim</a></div></div></div>
+  <div class="si"><div class="sn2">S07</div><div><div class="sp">Parapolitika</div><div class="st2">European Commission issued 10 yellow cards to Greece including diesel tax &middot; 1,236 Greek tax expenditures &middot; fiscal cliff Day 5 of 7</div><div class="su"><a href="https://www.parapolitika.gr/oikonomia/article/1739507/">parapolitika.gr &mdash; Greek EU Yellow Cards</a></div></div></div>
+  <div class="si"><div class="sn2">S08</div><div><div class="sp">The National Desk / ABC News (Australia)</div><div class="st2">Hezbollah rejects deal &middot; demands dismantlement non-starter &middot; Lebanon lacks capability to forcibly disarm</div><div class="su"><a href="https://newsapp.abc.net.au/news/2026-06-05/hezbollah-rejects-latest-lebanon-israel-ceasefire-agreement/106762184">abc.net.au &mdash; Hezbollah Rejects Ceasefire</a></div></div></div>
+</div></div>
+</div>
+</div>
+
+<div class="ft">
+  <div>CMF v5.4 &middot; SITREP 112 &middot; JUNE 4, 2026 &middot; HORMUZ DAY 55 &middot; BATCH-SEARCH VERIFIED</div>
+  <div>92 TRIPWIRES + H11/H12/H13 &middot; 18 CATEGORIES &middot; 7 ACTIVE TRIGGERS &middot; 8 SOURCES</div>
+  <div style="color:var(--r)">D2 CEASEFIRE REJECTED &middot; D1 CONDITION UNMET &middot; BRENT $95.03 (-3%) &middot; B1 NOT TRIGGERED $5.35 &middot; DC DROUGHT WATCH 3RD YEAR &middot; H1 (MEAD) 15 FT &middot; IEA RED ZONE ~29 DAYS</div>
+</div>
+</body>
+</html>
